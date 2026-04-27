@@ -1,28 +1,34 @@
 <?php
 // Establecer la conexión a la base de datos
-$servername = "127.0.0.1";
+$servername = "localhost";
 $username = "root"; // Cambiar por tu nombre de usuario
-$password = "" ; // Cambiar por tu contraseña
+$password = ""; // Cambiar por tu contraseña
 $dbname = "bd-huerta"; // Cambiar por el nombre de tu base de datos
 
-$conn = new mysqli($servername, $username, $password, $dbname);
 
+
+
+$conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
 die("Conexión fallida: " . $conn->connect_error);
 }
 // Obtener los datos del formulario
 $usuario = $_POST['usuario'];
 $contrasena = $_POST['contrasena'];
-
 // Consultar la base de datos
-$sql = "SELECT * FROM login WHERE usuario='root' AND password=''";
-$result = $conn->query($sql);
 
+
+
+$sql = "SELECT * FROM login WHERE usuario='$usuario' AND password=''";
+
+
+$result = $conn->query($sql);
 if ($result->num_rows == 1) {
 // Inicio de sesión exitoso
-echo "Inicio de sesión exitoso. Bienvenido, $usuario.";
+ header('Location: index2.html');
+    exit;
 } else {
-// Error en las credenciales
-echo "Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.";
+    echo"usuario o contraseña incorrectos. Por favor, intentalo de nuevo.";
 }
+$conn->close();
 ?>
