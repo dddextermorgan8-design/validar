@@ -1,66 +1,98 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
     <style>
-        /* Personalización de colores */
-        .card-header {
-            /* Degradado de azul a morado y lila */
-            background: linear-gradient(45deg, #007bff, #6f42c1, #a29bfe) !important;
-            color: white !important;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .btn-primary {
-            /* Botón haciendo juego con el degradado */
-            background: linear-gradient(45deg, #6f42c1, #007bff);
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(45deg, #007bff, #6f42c1);
-        }
-
         body {
-            background-color: #f8f9fa; /* Un fondo gris claro para que resalte la tarjeta */
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1b4b7f 0%, #20c997 100%);
+            color: #343a40;
+        }
+        .login-card {
+            border: 0;
+            border-radius: 1.25rem;
+            overflow: hidden;
+        }
+        .login-image {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+        }
+        .login-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.35);
+        }
+        .form-control:focus {
+            border-color: #20c997;
+            box-shadow: 0 0 0 0.2rem rgba(32, 201, 151, 0.25);
+        }
+        .brand-icon {
+            width: 60px;
+            height: 60px;
+            background: #20c997;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow">
-                <div class="card-header">
-                    Inicio de Sesión
-                </div>
-                <div class="card-body">
-                    <form action="validar.php" method="post">
-                        <div class="form-group">
-                            <label for="usuario">Usuario:</label>
-                            <input type="text" class="form-control" id="usuario" name="usuario" required>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card login-card shadow-lg">
+                    <div class="row no-gutters align-items-stretch">
+                        <div class="col-md-5 d-none d-md-block position-relative">
+                            <div class="login-image"></div>
+                            <div class="login-overlay"></div>
                         </div>
-                        <div class="form-group">
-                            <label for="contrasena">Contraseña:</label>
-                            <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+                        <div class="col-md-7">
+                            <div class="card-body p-5">
+                                <div class="text-center mb-4">
+                                    <div class="brand-icon">S</div>
+                                    <h2 class="font-weight-bold">Inicio de Sesión</h2>
+                                    <p class="text-muted">Accede a tu panel administrativo con tu usuario y contraseña.</p>
+                                </div>
+                                <form action="validar.php" method="post">
+                                    <div class="form-row">
+                                        <div class="form-group col-12">
+                                            <label for="usuario">Usuario</label>
+                                            <input type="text" class="form-control rounded-pill" id="usuario" name="usuario" required>
+                                        </div>
+                                        <div class="form-group col-12">
+                                            <label for="contrasena">Contraseña</label>
+                                            <input type="password" class="form-control rounded-pill" id="contrasena" name="contrasena" required>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-success btn-block btn-lg rounded-pill">Ingresar</button>
+                                </form>
+                                <div class="mt-4 text-center">
+                                    <span class="text-muted">¿Necesitas ayuda? Contáctanos si olvidaste tus datos.</span>
+                                </div>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
 
